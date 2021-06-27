@@ -1,0 +1,101 @@
+:root {
+    --bg: #40739e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);/*Cmbia las coordenadas de los objetos*/
+    overflow: hidden;
+}
+.container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.img-contains {
+    flex-basis: 100px;
+    position: relative;
+    transition: all 2s;
+}
+.img-contains img {
+    width: 100px;
+}
+.img-contains::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 30px;
+    background: var(--bg);
+    bottom: -26px;
+    left: 7px;
+    transform: skewX(26deg);
+}
+.img-contains::before {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 100px;
+    background: var(--bg);
+    top: 14px;
+    right: -14px;
+    transform: skewY(65deg);
+}
+.container:hover .img-contains:nth-child(1) {
+    transform: translate(-50px, -220px) rotate(120deg);
+}
+.container:hover .img-contains:nth-child(2) {
+    transform: translate(40px, -240px) rotate(-220deg);
+}
+.container:hover .img-contains:nth-child(3) {
+    transform: translate(230px, -240px) rotate(320deg);
+}
+.container:hover .img-contains:nth-child(4) {
+    transform: translate(-90px, 240px);
+}
+.container:hover .img-contains:nth-child(5) {
+    transform: translate(160px, 210px) rotate(220deg);
+}
+.container:hover .img-contains:nth-child(6) {
+    transform: translate(120px, -180px) rotate(70deg);
+}
+.container:hover .img-contains:nth-child(7) {
+    transform: translate(-220px, -240px) rotate(200deg);
+}
+.container:hover .img-contains:nth-child(8) {
+    transform: translate(-240px, -20px);
+}
+.container:hover .img-contains:nth-child(9) {
+    transform: translate(200px, -110px);
+}
+footer {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+svg text {
+    font-size: 5rem;
+    text-transform: capitalize;
+    font-family: 'Syne Mono' , monospace;
+    letter-spacing: 5px;
+    stroke: #2ecc71;
+    animation: anime 2s infinite alternate;
+}
+@keyframes anime {
+    0% {
+        stroke-dasharray: 0 50%;
+    }
+    100% {
+        stroke-dasharray: 50% 0;
+    }
+}
